@@ -1,0 +1,158 @@
+
+body {
+	background: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	
+	font-family: Monospace;
+}
+
+#menu{
+	padding-top: 0;
+	margin-top: 0;
+	background-color: #1F2F3F;
+	text-align: center;
+	opacity: 0.5;
+	transition: 2s;
+	height: 10%;
+}
+
+#menu:hover {
+	opacity: 1.0;
+}
+#menu h3{
+	position: center;
+	color: #8A8B8C;
+	padding-top: 2%;
+	opacity: 1.0;
+	font-family: Monospace;
+	font-size: 200%;
+}
+
+#body{
+	background-color: rgba(16,16,0,.2);
+	margin: 0;
+	padding: 0;
+	margin-top: 3%;
+	height: 80%;
+	color: #A2B12C;
+}
+
+#formCustom {
+	width: 100%;
+	margin-top: 2%;
+	padding-left: 5%;
+	text-align: left;
+	display: none;
+	//background-color: rgba(16,16,0,.2);
+}
+
+#formDefault {
+	width: 100%;
+	margin-top: 2%;
+	padding-left: 5%;
+	text-align: left;
+	display: none;
+	//background-color: rgba(16,16,0,.2);
+}
+
+#tableSelector{
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+#body h4{
+	font-size: 200%;
+	padding-left: 2%;
+}
+input[type=text] {
+    padding:5px; 
+	margin-top: 0.1%;
+	margin-bottom: 0.3%;
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc;
+    width: 15%; 
+    font-size: 250%;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	transition: 1s;
+	position: absolute;
+	bottom: 1%;
+	right: 1%;
+}
+
+input[type=submit]:hover{
+	color: #AABB34;
+	background-color: #BB3434;
+}
+
+#body a {
+	background-color: #356412;
+	padding: 0.4%;
+	margin: 0.2%;
+	margin-left: 1.2%;
+	margin-bottom: 1.2%;
+	cursor: crosshair;
+	transition: 0.4s;
+}
+
+#body a:hover{
+	background-color: #455732;
+}
+
+#bookField{
+	display: none;
+}
+
+#studentField{
+	display: none;
+}
+
+#authorField{
+	display: none;
+}
+
+#bookFieldUpdate{
+	display: none;
+}
+
+#studentFieldUpdate{
+	display: none;
+}
+
+#authorFieldUpdate{
+	display: none;
+}
+
+#operationType{
+	//background-color: rgba(16,16,0,.2);
+	border-radius: 5px;
+	width: 20%;
+	margin: 2%;
+}
+
+#tableSelect{
+	//background-color: rgba(16,16,0,.2);
+	border-radius: 5px;
+	width: 20%;
+	margin: 2%;
+}
+
+.inlineBlock{
+	display: none;
+	//background-color: rgba(16,16,0,.2);
+}
+
+#formDefault input[type=radio] {
+	margin-bottom: 2%;
+}

@@ -14,7 +14,6 @@
 			echo "<br/> File is empty";
 		}
 	}
-	
 ?>
 <h3>Choose a file to upload..</h3>
 <form action="uploader.php" method="POST" enctype="multipart/form-data">
@@ -22,5 +21,4 @@
 	<br>
 	<input type="submit" value="Upload">
 </form>
-
 <a href="home.php"><h3>Go back to home</h3></a>

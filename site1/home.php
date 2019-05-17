@@ -11,9 +11,6 @@
 			<a href="report.php">Report</a>
 			<a href="">Contact</a>
 		</div>
-		<form action="read1.php" method="get">
-			<input type="submit" value="watch 200 iq play">
-		</form>
 		<form action="read2.php" method="get">
 			<input type="submit" value="Read about IQ">
 		</form>
@@ -29,7 +26,6 @@
 			<a href="https://www.linkedin.com" target="_blank"><img src="http://icons.iconarchive.com/icons/danleech/simple/1024/linkedin-icon.png"/></a>
 			<br/>
 			<p>
-				
 			</p>
 		</div>
 	</body>
