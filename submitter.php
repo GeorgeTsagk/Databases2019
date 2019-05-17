@@ -5,26 +5,28 @@
 	$sentence = '';
 	//load fields for selected table (update fields too if update operation is selected)
 	switch ( $table ) {
-		case 'Students':
-			$studentName = $_POST['studentName'];
-			$studentSurname = $_POST['studentSurname'];
-			$studentAge = $_POST['studentAge'];
-			$studentCardID = $_POST['studentCardID'];
+		case 'member':
+			$memberName = $_POST['memberName'];
+			$memberSurname = $_POST['memberSurname'];
+			$memberStreet = $_POST['memberStreet'];
+			$memberStreetNo = $_POST['memberStreetNo'];
+			$memberPostalCode = $_POST['memberPostalCode'];
 			if($operation=='Update'){
-				$studentNameUpdate = $_POST['studentNameUpdate'];
-				$studentSurnameUpdate = $_POST['studentSurnameUpdate'];
-				$studentAgeUpdate = $_POST['studentAgeUpdate'];
-				$studentCardIDUpdate = $_POST['studentCardIDUpdate'];
+				$memberNameUpdate = $_POST['memberNameUpdate'];
+				$memberSurnameUpdate = $_POST['memberSurnameUpdate'];
+				$memberStreetUpdate = $_POST['memberStreetUpdate'];
+				$memberStreetNoUpdate = $_POST['memberStreetNoUpdate'];
+				$memberPostalCodeUpdate = $_POST['memberPostalCodeUpdate'];
 			}
 			break;
 		case 'Books':
-			echo "Books case";
+			
 			break;
 		case 'Authors':
-			echo "Authors case";
+			
 			break;
 	}
-	//prepare sentence according to operation and table
+	//sentence prefix according to operation and table
 	switch ( $operation ) {
 		case 'Insert':
 			$sentence = "INSERT INTO " . $table;
@@ -36,25 +38,48 @@
 			$sentence = "UPDATE " . $table ;
 		break;
 	}
-	
+	//SET fields for Update
 	if($operation=='Update'){
 		$sentence = $sentence . " SET ";
 		switch($table){
-			case 'Students':
-			if(!empty($studentNameUpdate)){
-				$sentence = $sentence . "studentName='" . $studentNameUpdate . "' ";
-				if((!empty($studentSurnameUpdate))||(!empty($studentAgeUpdate))){
+			case 'member':
+			if(!empty($memberNameUpdate)){
+				$sentence = $sentence . "Mfirst='" . $memberNameUpdate . "' ";
+				if((!empty($memberSurnameUpdate))||
+					(!empty($memberStreetUpdate))||
+					(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))
+				){
 					$sentence = $sentence . ", ";
 				}
 			}
-			if(!empty($studentSurnameUpdate)){
-				$sentence = $sentence . "studentSurname='" . $studentSurnameUpdate . "' ";
-				if(!empty($studentAgeUpdate)){
+			if(!empty($memberSurnameUpdate)){
+				$sentence = $sentence . "MLast='" . $memberSurnameUpdate . "' ";
+				if(	(!empty($memberStreetUpdate))||
+					(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))
+				){
 					$sentence = $sentence . ", ";
 				}
 			}
-			if(!empty($studentAgeUpdate))
-				$sentence = $sentence . "studentAge='" . $studentAgeUpdate . "' ";
+			if(!empty($memberStreetUpdate)){
+				$sentence = $sentence . "Street='" . $memberStreetUpdate . "' ";
+				if(	(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberStreetNoUpdate)){
+				$sentence = $sentence . "number=" . $memberStreetNoUpdate . " ";
+				if((!empty($memberPostalCodeUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberPostalCodeUpdate)){
+				$sentence = $sentence . "postalCode=" . $memberPostalCodeUpdate . " ";
+			}
 			break;
 			case 'Books':
 			
@@ -65,31 +90,70 @@
 		}
 	}
 	
-	//fill WHERE filters
-	$sentence = $sentence . " WHERE ";
-	switch($table){
-		case 'Students':
-		if(!empty($studentName)){
-			$sentence = $sentence . "studentName='" . $studentName . "' ";
-			if((!empty($studentSurname))||(!empty($studentAge))){
-				$sentence = $sentence . "AND ";
-			}
+	//Values Field for Insert
+	if($operation=='Insert'){
+		switch($table){
+			case 'member':
+			$sentence = $sentence . " (Mfirst, MLast, Street, number, postalCode) "
+			. "VALUES('" . $memberName ."', '" . $memberSurname . "', '" . $memberStreet 
+			. "', " . $memberStreetNo . " , " . $memberPostalCode . ")";
+			break;
+			case 'Books':
+			
+			break;
+			case 'Authors':
+			
+			break;
+			
 		}
-		if(!empty($studentSurname)){
-			$sentence = $sentence . "studentSurname='" . $studentSurname . "' ";
-			if(!empty($studentAge)){
-				$sentence = $sentence . "AND ";
+	}
+	
+	//fill WHERE filters for Delete / Update
+	if(($operation=='Delete')||($operation=='Update')){
+		$sentence = $sentence . " WHERE ";
+		switch($table){
+			case 'member':
+			if(!empty($memberName)){
+				$sentence = $sentence . "Mfirst='" . $memberName . "' ";
+				if((!empty($memberSurname))||
+					(!empty($memberStreet))||
+					(!empty($memberStreetNo))||
+					(!empty($memberPostalCode))){
+					$sentence = $sentence . "AND ";
+				}
 			}
+			if(!empty($memberSurname)){
+				$sentence = $sentence . "MLast='" . $memberSurname . "' ";
+				if((!empty($memberStreet))||
+					(!empty($memberStreetNo))||
+					(!empty($memberPostalCode))){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberStreet)){
+				$sentence = $sentence . "Street='" . $memberStreet . "' ";
+				if((!empty($memberStreetNo))||
+					(!empty($memberPostalCode))){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberStreetNo)){
+				$sentence = $sentence . "number=" . $memberStreetNo . " ";
+				if((!empty($memberPostalCode))){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberPostalCode)){
+				$sentence = $sentence . "postalCode=" . $memberPostalCode . " ";
+			}
+			break;
+			case 'Books':
+			
+			break;
+			case 'Authors':
+			
+			break;
 		}
-		if(!empty($studentAge))
-			$sentence = $sentence . "studentAge='" . $studentAge . "' ";
-		break;
-		case 'Books':
-		
-		break;
-		case 'Authors':
-		
-		break;
 	}
 	echo $sentence . '<br>';
 ?>

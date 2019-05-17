@@ -20,16 +20,17 @@
 					<input type="radio" name="operation" value="Update" onclick='return showUpdateField()'> Update  
 					</div>
 					<div id="tableSelect" >
-					<input type="radio" name="table" value="Students" onclick='return showStudentField()'> Students
+					<input type="radio" name="table" value="member" onclick='return showMemberField()'> Members
 					<input type="radio" name="table" value="Books" onclick='return showBookField()'> Books
 					<input type="radio" name="table" value="Authors" onclick='return showAuthorField()'> Authors
 					</div>
 					<div class = "inlineBlock" id="normalField">
-						<div id="studentField">
-						Name<br><input type="text" name="studentName"><br>
-						Surname<br><input type="text" name="studentSurname"><br>
-						Age<br><input type="text" name="studentAge"><br>
-						Card ID<br><input type="text" name="studentCardID"><br>
+						<div id="memberField">
+						Name<br><input type="text" name="memberName"><br>
+						Surname<br><input type="text" name="memberSurname"><br>
+						Street<br><input type="text" name="memberStreet"><br>
+						Street No.<br><input type="text" name="memberStreetNo"><br>
+						Postal Code<br><input type="text" name="memberPostalCode"><br>
 						</div>
 						<div id="bookField">
 						Title<br><input type="text" name="bookTitle"><br>
@@ -41,11 +42,12 @@
 						</div>
 					</div>
 					<div class = "inlineBlock" id = "updateField">
-						<div id="studentFieldUpdate">
-						New Name<br><input type="text" name="studentNameUpdate"><br>
-						New Surname<br><input type="text" name="studentSurnameUpdate"><br>
-						New Age<br><input type="text" name="studentAgeUpdate"><br>
-						New Card ID<br><input type="text" name="studentCardIDUpdate"><br>
+						<div id="memberFieldUpdate">
+						New Name<br><input type="text" name="memberNameUpdate"><br>
+						New Surname<br><input type="text" name="memberSurnameUpdate"><br>
+						New Street<br><input type="text" name="memberStreetUpdate"><br>
+						New Street No.<br><input type="text" name="memberStreetNoUpdate"><br>
+						New Postal Code<br><input type="text" name="memberPostalCodeUpdate"><br>
 						</div>
 						<div id="bookFieldUpdate">
 						New Title<br><input type="text" name="bookTitleUpdate"><br>
@@ -56,7 +58,7 @@
 						New Surname<br><input type="text" name="authorSurnameUpdate"><br>
 						</div>
 					</div>
-					<input id="buttonSubmit" type="submit" value="Submit">
+					<input id="buttonSubmit" type="submit" value="Ahoy!">
 				</form>
 			</div>
 			
@@ -67,7 +69,7 @@
 					<input type="radio" name="defaultSelector" value="default2"> Statement2 <br>  
 					<input type="radio" name="defaultSelector" value="default3"> Statement3 <br>  
 					<input type="radio" name="defaultSelector" value="default4"> Statement4 <br>  
-					<input id="buttonSubmit" type="submit" value="Submit">
+					<input id="buttonSubmit" type="submit" value="Ahoy!">
 					
 				</form>
 			</div>
@@ -91,11 +93,11 @@
 		def.style.display = "inline-block";
 		normalField.style.display = "none";
 	}
-	function showStudentField(){
-		var stu_up = document.getElementById('studentFieldUpdate');
+	function showMemberField(){
+		var stu_up = document.getElementById('memberFieldUpdate');
 		var boo_up = document.getElementById('bookFieldUpdate');
 		var aut_up = document.getElementById('authorFieldUpdate');
-		var stu = document.getElementById('studentField');
+		var stu = document.getElementById('memberField');
 		var boo = document.getElementById('bookField');
 		var aut = document.getElementById('authorField');
 		stu.style.display = "block";
@@ -106,10 +108,10 @@
 		aut_up.style.display = "none";
 	}
 	function showBookField(){
-		var stu_up = document.getElementById('studentFieldUpdate');
+		var stu_up = document.getElementById('memberFieldUpdate');
 		var boo_up = document.getElementById('bookFieldUpdate');
 		var aut_up = document.getElementById('authorFieldUpdate');
-		var stu = document.getElementById('studentField');
+		var stu = document.getElementById('memberField');
 		var boo = document.getElementById('bookField');
 		var aut = document.getElementById('authorField');
 		stu.style.display = "none";
@@ -120,10 +122,10 @@
 		aut_up.style.display = "none";
 	}
 	function showAuthorField(){
-		var stu_up = document.getElementById('studentFieldUpdate');
+		var stu_up = document.getElementById('memberFieldUpdate');
 		var boo_up = document.getElementById('bookFieldUpdate');
 		var aut_up = document.getElementById('authorFieldUpdate');
-		var stu = document.getElementById('studentField');
+		var stu = document.getElementById('memberField');
 		var boo = document.getElementById('bookField');
 		var aut = document.getElementById('authorField');
 		stu.style.display = "none";
