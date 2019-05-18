@@ -6,7 +6,8 @@ body {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
-	
+	height: 100%;
+	transition: 0.2s;
 	font-family: Monospace;
 }
 
@@ -17,7 +18,7 @@ body {
 	text-align: center;
 	opacity: 0.5;
 	transition: 2s;
-	height: 10%;
+	height: 5%;
 }
 
 #menu:hover {
@@ -26,7 +27,7 @@ body {
 #menu h3{
 	position: center;
 	color: #8A6B5C;
-	padding-top: 2%;
+	padding-top: 1%;
 	opacity: 1.0;
 	font-family: Monospace;
 	font-size: 200%;
@@ -35,12 +36,12 @@ body {
 }
 
 #body{
-	background-color: rgba(16,16,0,.5);
+	background-color: rgba(16,16,0,.6);
 	margin: 0;
 	padding: 0;
 	margin-top: 3.3%;
 	height: 100%;
-	color: #A2B12C;
+	color: #92A12C;
 }
 
 #formCustom {
@@ -48,8 +49,12 @@ body {
 	margin-top: 2%;
 	padding-left: 5%;
 	text-align: left;
-	display: none;
+	display: block;
 	//background-color: rgba(16,16,0,.2);
+}
+
+#updateField{
+	display:none;
 }
 
 #formDefault {
@@ -69,13 +74,14 @@ body {
 #body h4{
 	font-size: 200%;
 	padding-left: 2%;
+	padding-top: 2%;
 }
 input[type=text] {
     padding:0.5%; 
 	margin-top: 0.5%;
 	margin-bottom: 0.8%;
-    border: 5px solid #ccc; 
-    height: 5%;
+    border: 3px solid #ccc; 
+    height: 4%;
     font-size: 100%;
     -webkit-border-radius: 4%;
     border-radius: 4%;
@@ -95,6 +101,7 @@ input[type=submit] {
 	right: 1%;
 }
 
+
 input[type=submit]:hover{
 	color: #AABB34;
 	background-color: #BB3434;
@@ -108,6 +115,22 @@ input[type=submit]:hover{
 	margin-left: 2%;
 	cursor: crosshair;
 	transition: 0.4s;
+}
+
+
+#backButton{
+    background:#ccc;
+    font-size: 250%;
+    text-decoration: none;
+    cursor:pointer;
+    margin: 0;
+    padding: 0;
+    -webkit-border-radius: 1%;
+    border-radius: 1%;
+	transition: 0.1s;
+	position: absolute;
+	bottom: 1%;
+	right: 1%;
 }
 
 #customButton{
@@ -124,7 +147,7 @@ input[type=submit]:hover{
 }
 
 #studentField{
-	display: none;
+	display: block;
 }
 
 #authorField{
@@ -146,7 +169,7 @@ input[type=submit]:hover{
 #operationType{
 	//background-color: rgba(16,16,0,.2);
 	border-radius: 5px;
-	width: 40%;
+	width: 60%;
 	margin: 2% 0%;
 	
 }
@@ -154,17 +177,27 @@ input[type=submit]:hover{
 #tableSelect{
 	//background-color: rgba(16,16,0,.2);
 	border-radius: 5px;
-	width: 40%;
+	width: 60%;
 	margin: 2% 0%;
 }
 
 .inlineBlock{
-	display: none;
-	//background-color: rgba(16,16,0,.2);
+	display: inline-block;
+	margin-right: 2.5%;
+	transition: 0.2s;
+	border-radius: 3%;
+	padding: 1%;
 }
 
-#formDefault input[type=radio] {
-	margin-bottom: 2%;
+.inlineBlock:hover{
+	background-color: rgba(23,23,23,.6);
+}
+
+input[type=radio] {
+	margin-bottom: 0%;
+	margin-left: 3%;
+	width: 2%;
+	height: 2%;
 }
 
 form {
@@ -174,4 +207,22 @@ form {
 #buttonSubmit{
 	font-size: 150%;
 	font-family: Monospace;
+}
+
+#updateField{
+	color: #B2811F;
+}
+
+#phpResults{
+	font-size: 150%;
+	width: 60%;
+	height: 50%;
+	padding: 1%;
+	border-radius: 5%;
+	background-color: rgba(23,23,23,.6);
+	margin-left: 5%;
+	transition: 0.2s;
+}
+#phpResults:hover{
+	background-color: rgba(23,23,23,.8);
 }

@@ -1,27 +1,27 @@
 <html>
 	<head>
-		<title>Bitb pirate port</title>
+		<title>Library DB</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<iframe src="Bitb.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> 
+		<!--<iframe src="Bitb.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
 	</head>
 	<body>
 		<div id="menu">
-			<h3>This is the UI for interacting with the database.</h3><br>
+			<h3>Welcome to the library UI</h3><br>
 		</div>
 		<div id="body">
-			<h4>Prepare your ship for departure</h4>
+			<h4>Choose the action you want to perform and fill in the form accordingly.</h4>
 			<a id="customButton" onclick='return showCustom()'>Custom form</a>  
 			<a id="defaultButton" onclick='return showDefault()'>Select default</a><br>
 			<div id="formCustom">
 				<form action="submitter.php" method="post">
 					<div id="operationType">
-					<input type="radio" name="operation" value="Insert" onclick='return hideUpdateField()'> Insert  
-					<input type="radio" name="operation" value="Delete" onclick='return hideUpdateField()'> Delete  
-					<input type="radio" name="operation" value="Update" onclick='return showUpdateField()'> Update  
+					<input type="radio" name="operation" value="Insert" onclick='hideUpdateField()'> Insert
+					<input type="radio" name="operation" value="Delete" onclick='return hideUpdateField()'> Delete
+					<input type="radio" name="operation" value="Update" onclick='return showUpdateField()'> Update
 					</div>
 					<div id="tableSelect" >
 					<input type="radio" name="table" value="member" onclick='return showMemberField()'> Members
-					<input type="radio" name="table" value="Books" onclick='return showBookField()'> Books
+					<input type="radio" name="table" value="book" onclick='return showBookField()'> Books
 					<input type="radio" name="table" value="Authors" onclick='return showAuthorField()'> Authors
 					</div>
 					<div class = "inlineBlock" id="normalField">
@@ -31,10 +31,14 @@
 						Street<br><input type="text" name="memberStreet"><br>
 						Street No.<br><input type="text" name="memberStreetNo"><br>
 						Postal Code<br><input type="text" name="memberPostalCode"><br>
+						Birthday Date (YYYY-MM-DD)<br><input type="text" name="memberBday"><br>
 						</div>
 						<div id="bookField">
 						Title<br><input type="text" name="bookTitle"><br>
-						Publish Year<br><input type="text" name="bookPublishYear"><br>
+						Publishing Year<br><input type="text" name="bookPublishingYear"><br>
+						Publisher<br><input type="text" name="bookPublisher"><br>
+						Number of Pages<br><input type="text" name="bookPageNo"><br>
+						ISBN<br><input type="text" name="bookISBN"><br>
 						</div>
 						<div id="authorField">
 						Name<br><input type="text" name="authorName"><br>
@@ -48,17 +52,21 @@
 						New Street<br><input type="text" name="memberStreetUpdate"><br>
 						New Street No.<br><input type="text" name="memberStreetNoUpdate"><br>
 						New Postal Code<br><input type="text" name="memberPostalCodeUpdate"><br>
+						New Birthday Date<br><input type="text" name="memberBdayUpdate"><br>
 						</div>
 						<div id="bookFieldUpdate">
 						New Title<br><input type="text" name="bookTitleUpdate"><br>
-						New Publish Year<br><input type="text" name="bookPublishYearUpdate"><br>
+						New Publishing Year<br><input type="text" name="bookPublishingYearUpdate"><br>
+						New Publisher<br><input type="text" name="bookPublisherUpdate"><br>
+						New Number of Pages<br><input type="text" name="bookPageNoUpdate"><br>
+						New ISBN<br><input type="text" name="bookISBNUpdate"><br>
 						</div>
 						<div id="authorFieldUpdate">
 						New Name<br><input type="text" name="authorNameUpdate"><br>
 						New Surname<br><input type="text" name="authorSurnameUpdate"><br>
 						</div>
 					</div>
-					<input id="buttonSubmit" type="submit" value="Ahoy!">
+					<input id="buttonSubmit" type="submit" value="Submit!">
 				</form>
 			</div>
 			
@@ -69,12 +77,13 @@
 					<input type="radio" name="defaultSelector" value="default2"> Statement2 <br>  
 					<input type="radio" name="defaultSelector" value="default3"> Statement3 <br>  
 					<input type="radio" name="defaultSelector" value="default4"> Statement4 <br>  
-					<input id="buttonSubmit" type="submit" value="Ahoy!">
+					<input id="buttonSubmit" type="submit" value="Submit!">
 					
 				</form>
 			</div>
 		</div>
 	</body>
+	<iframe width="200" height="200" src="https://www.youtube.com/embed/hHW1oY26kxQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media; gyroscope;"></iframe>
 </html>
 <script>
 	function showCustom(){
