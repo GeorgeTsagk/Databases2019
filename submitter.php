@@ -286,7 +286,7 @@
 	if($conn->connect_error){
 		die("Connection failed: " . $conn->connect_error);
 	}
-	echo "<span style='color:green'>Connected to Database.</span>" . '<br><br>';
+	echo "<span style='color:green'>Connected</span> to Database." . '<br><br>';
 	
 	echo "Attempting query." . '<br><br>';
 	echo $sentence . '<br><br>';
