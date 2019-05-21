@@ -288,16 +288,19 @@
 	}
 	echo "<span style='color:green'>Connected</span> to Database." . '<br><br>';
 	
-	echo "Attempting query." . '<br><br>';
-	echo $sentence . '<br><br>';
+	echo "Attempting query:" . '<br>';
+	echo "<span style='color:#C67643'>" . $sentence . "</span>" .'<br><br>';
 	$result = mysqli_query($conn, $sentence);
 	
 	if(!empty($result)){
-		echo "Query was <span style='color:green'>Succesfull</span>";
+		echo "Query was <span style='color:green'>Succesfull</span><br>";
 	}else{
-		echo "Query <span style='color:red'>failed</span>: Make sure to put correct values for each field 
+		echo "Query <span style='color:red'>failed</span>: Make sure to put correct values on fields 
 		depending on query type." . '<br>';
+		echo mysqli_error($conn) . '<br>';
 	}
+	echo mysqli_affected_rows($conn) . ' rows affected <br>';
+	
 	mysqli_close($conn);
 ?>
 			</p>
