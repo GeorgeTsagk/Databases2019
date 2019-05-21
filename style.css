@@ -107,13 +107,13 @@ input[type=submit]:hover{
 	background-color: #BB3434;
 }
 
-#body a {
+#formSelect a {
 	background-color: #356412;
 	padding: 1% 0.5%;
 	font-size: 150%;
 	border-radius: 10%;
 	margin-left: 2%;
-	cursor: crosshair;
+	cursor: default;
 	transition: 0.4s;
 }
 
@@ -137,7 +137,7 @@ input[type=submit]:hover{
 	margin-left: 400%;
 }
 
-#body a:hover{
+#formSelect a:hover{
 	background-color: #455732;
 }
 
@@ -225,4 +225,28 @@ form {
 }
 #phpResults:hover{
 	background-color: rgba(23,23,23,.8);
+}
+
+input[type="radio"]:checked+label { 
+	transition: 0.3s;
+	border-radius: 5%;
+	font-weight: bold; 
+	background-color: rgba(45,90,45,.7);
+}
+
+input[type="radio"]:hover+label { 
+	transition: 0.3s;
+	border-radius: 5%;
+	font-weight: bold; 
+	background-color: rgba(45,90,45,.2);
+}
+
+input[type="radio"]{
+	display: none;
+}
+
+
+input[type="radio"]+label{
+	padding-left: 3%;
+	padding-right: 3%;
 }

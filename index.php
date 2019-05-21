@@ -10,19 +10,21 @@
 		</div>
 		<div id="body">
 			<h4>Choose the action you want to perform and fill in the form accordingly.</h4>
+			<div id="formSelect">
 			<a id="customButton" onclick='return showCustom()'>Custom form</a>  
 			<a id="defaultButton" onclick='return showDefault()'>Select default</a><br>
+			</div>
 			<div id="formCustom">
 				<form action="submitter.php" method="post">
 					<div id="operationType">
-					<input type="radio" name="operation" value="Insert" onclick='hideUpdateField()'> Insert
-					<input type="radio" name="operation" value="Delete" onclick='return hideUpdateField()'> Delete
-					<input type="radio" name="operation" value="Update" onclick='return showUpdateField()'> Update
+					<input id="ins" type="radio" name="operation" value="Insert" onclick='hideUpdateField()'><label for="ins"> Insert</label>
+					<input id="del" type="radio" name="operation" value="Delete" onclick='return hideUpdateField()'><label for="del"> Delete</label>
+					<input id="upd" type="radio" name="operation" value="Update" onclick='return showUpdateField()'><label for="upd"> Update</label>
 					</div>
 					<div id="tableSelect" >
-					<input type="radio" name="table" value="member" onclick='return showMemberField()'> Members
-					<input type="radio" name="table" value="book" onclick='return showBookField()'> Books
-					<input type="radio" name="table" value="Authors" onclick='return showAuthorField()'> Authors
+					<input id="mem" type="radio" name="table" value="member" onclick='return showMemberField()'><label for="mem"> Members</label>
+					<input id="boo" type="radio" name="table" value="book" onclick='return showBookField()'><label for="boo"> Books</label>
+					<input id="aut" type="radio" name="table" value="Authors" onclick='return showAuthorField()'><label for="aut"> Authors</label>
 					</div>
 					<div class = "inlineBlock" id="normalField">
 						<div id="memberField">
