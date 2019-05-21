@@ -109,8 +109,8 @@ input[type=submit]:hover{
 
 #formSelect a {
 	background-color: #356412;
-	padding: 1% 0.5%;
-	font-size: 150%;
+	padding: 0.5% 0.5%;
+	font-size: 120%;
 	border-radius: 10%;
 	margin-left: 2%;
 	cursor: default;
@@ -170,7 +170,7 @@ input[type=submit]:hover{
 	//background-color: rgba(16,16,0,.2);
 	border-radius: 5px;
 	width: 60%;
-	margin: 2% 0%;
+	margin: 0% 0%;
 	
 }
 
@@ -178,7 +178,7 @@ input[type=submit]:hover{
 	//background-color: rgba(16,16,0,.2);
 	border-radius: 5px;
 	width: 60%;
-	margin: 2% 0%;
+	margin: 0% 0%;
 }
 
 .inlineBlock{
@@ -187,6 +187,7 @@ input[type=submit]:hover{
 	transition: 0.2s;
 	border-radius: 3%;
 	padding: 1%;
+	margin-top: 0.5%;
 }
 
 .inlineBlock:hover{
@@ -231,6 +232,7 @@ input[type="radio"]:checked+label {
 	transition: 0.3s;
 	border-radius: 5%;
 	font-weight: bold; 
+	color: #B67660;
 	background-color: rgba(45,90,45,.7);
 }
 
@@ -248,5 +250,8 @@ input[type="radio"]{
 
 input[type="radio"]+label{
 	padding-left: 3%;
+	font-size: 110%;
 	padding-right: 3%;
+	color: #A79988;
 }
+

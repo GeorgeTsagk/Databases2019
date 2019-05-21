@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="menu">
-			<h3>Welcome to the library UI</h3><br>
+			<!--<h3>Welcome to the library UI</h3><br>-->
 		</div>
 		<div id="body">
 			<h4>Choose the action you want to perform and fill in the form accordingly.</h4>
@@ -16,11 +16,13 @@
 			</div>
 			<div id="formCustom">
 				<form action="submitter.php" method="post">
+					Select query type
 					<div id="operationType">
 					<input id="ins" type="radio" name="operation" value="Insert" onclick='hideUpdateField()'><label for="ins"> Insert</label>
 					<input id="del" type="radio" name="operation" value="Delete" onclick='return hideUpdateField()'><label for="del"> Delete</label>
 					<input id="upd" type="radio" name="operation" value="Update" onclick='return showUpdateField()'><label for="upd"> Update</label>
 					</div>
+					Choose table
 					<div id="tableSelect" >
 					<input id="mem" type="radio" name="table" value="member" onclick='return showMemberField()'><label for="mem"> Members</label>
 					<input id="boo" type="radio" name="table" value="book" onclick='return showBookField()'><label for="boo"> Books</label>
@@ -75,10 +77,10 @@
 			
 			<div id="formDefault">
 				<form action="defaultSubmitter.php" method="post">
-					<input type="radio" name="defaultSelector" value="default1"> Statement1 <br>  
-					<input type="radio" name="defaultSelector" value="default2"> Statement2 <br>  
-					<input type="radio" name="defaultSelector" value="default3"> Statement3 <br>  
-					<input type="radio" name="defaultSelector" value="default4"> Statement4 <br>  
+					<input id="def1" type="radio" name="defaultSelector" value="default1"><label for="def1"> Statement1 </label><br>  
+					<input id="def2" type="radio" name="defaultSelector" value="default2"><label for="def2"> Statement2 </label><br>  
+					<input id="def3" type="radio" name="defaultSelector" value="default3"><label for="def3"> Statement3 </label><br>  
+					<input id="def4" type="radio" name="defaultSelector" value="default4"><label for="def4"> Statement4 </label><br>  
 					<input id="buttonSubmit" type="submit" value="Submit!">
 					
 				</form>
