@@ -2,11 +2,10 @@
 	<head>
 		<title>Library DB</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<!-- <iframe src="Bitb.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
 	</head>
 	<body>
 		<div id="menu">
-			<h3>Welcome to the library UI</h3><br>
+			<p>This is the 6th semester project for Databases class 2018-2019, developped by Minaidis Panagiotis, Stefo Christos, Tsagkarelis Georgios</p>
 		</div>
 		<div id="body">
 			<h4>Database results</h4><br>
@@ -299,7 +298,7 @@
 		depending on query type." . '<br>';
 		echo mysqli_error($conn) . '<br>';
 	}
-	echo mysqli_affected_rows($conn) . ' rows affected <br>';
+	echo "<span style='font-weight:bold'>" . mysqli_affected_rows($conn) . ' rows affected' . "</span>" . '<br>';
 	
 	mysqli_close($conn);
 ?>
