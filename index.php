@@ -2,17 +2,16 @@
 	<head>
 		<title>Library DB</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<!--<iframe src="Bitb.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
 	</head>
 	<body>
 		<div id="menu">
-			<!--<h3>Welcome to the library UI</h3><br>-->
+			<p>This is the 6th semester project for Databases class 2018-2019, developped by Minaidis Panagiotis, Stefo Christos, Tsagkarelis Georgios</p>
 		</div>
 		<div id="body">
 			<h4>Choose the action you want to perform and fill in the form accordingly.</h4>
 			<div id="formSelect">
-			<a id="customButton" onclick='return showCustom()'>Custom form</a>  
-			<a id="defaultButton" onclick='return showDefault()'>Select default</a><br>
+			<a id="customButton" onclick='return showCustom()'>CUSTOM</a>  
+			<a id="defaultButton" onclick='return showDefault()'>DEFAULT</a><br>
 			</div>
 			<div id="formCustom">
 				<form action="submitter.php" method="post">
