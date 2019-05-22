@@ -165,7 +165,7 @@ input[type=submit]:hover{
 	display: block;
 }
 
-#authorField{
+#borrowsField{
 	display: none;
 }
 
@@ -177,7 +177,7 @@ input[type=submit]:hover{
 	display: none;
 }
 
-#authorFieldUpdate{
+#borrowsFieldUpdate{
 	display: none;
 }
 
@@ -186,7 +186,7 @@ input[type=submit]:hover{
 	border-radius: 5px;
 	width: 60%;
 	margin: 0% 0%;
-	
+	margin-bottom: 1%;
 }
 
 #tableSelect{
@@ -194,6 +194,7 @@ input[type=submit]:hover{
 	border-radius: 5px;
 	width: 60%;
 	margin: 0% 0%;
+	margin-bottom: 1%;
 }
 
 .inlineBlock{
@@ -270,3 +271,22 @@ input[type="radio"]+label{
 	color: #A79988;
 }
 
+#bookList{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: scroll;
+	font-size: 150%;
+	height: 80%;
+	background-color: rgba(23,23,23,.6);
+	transition: 0.2s;
+}
+
+#bookList:hover{
+	background-color: rgba(23,23,23,.8);
+}
+
+#bookListButton{
+	text-decoration: none;
+	color: #92A12C;
+}
