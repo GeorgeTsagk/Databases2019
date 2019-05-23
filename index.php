@@ -26,7 +26,7 @@
 					<div id="tableSelect" >
 					<input id="mem" type="radio" name="table" value="member" onclick='return showMemberField()'><label for="mem"> Members</label>
 					<input id="boo" type="radio" name="table" value="book" onclick='return showBookField()'><label for="boo"> Books</label>
-					<input id="aut" type="radio" name="table" value="borrows" onclick='return showAuthorField()'><label for="aut"> Borrow</label>
+					<input id="bor" type="radio" name="table" value="borrows" onclick='return showAuthorField()'><label for="bor"> Borrow</label>
 					</div>
 					<div class = "inlineBlock" id="normalField">
 						<div id="memberField">

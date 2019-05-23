@@ -48,8 +48,9 @@
 				$bookISBNUpdate = $_POST['bookISBNUpdate'];
 			}
 			break;
-		case 'Authors':
-			
+		case 'borrows':
+				$borrowsID = $_POST['borrowsID'];
+				$borrowsISBN = $_POST['borrowsISBN'];
 			break;
 	}
 	//sentence prefix according to operation and table
@@ -153,8 +154,16 @@
 				$sentence = $sentence . "ISBN=" . $bookISBNUpdate . " ";
 			}
 			break;
-			case 'Authors':
-			
+			case 'borrows':
+				if(!empty($borrowsID)){
+					$sentence = $sentence . "memberID=" . $borrowsID . " ";
+					if(!empty($borrowsISBN)){
+						$sentence = $sentence . ", ";
+					}
+				}
+				if(!empty($borrowsISBN)){
+					$sentence = $sentence . "ISBN=" . $borrowsISBN . " ";
+				}
 			break;
 		}
 	}
@@ -175,8 +184,12 @@
 			. $bookPageNo . " , " 
 			. $bookISBN . " )";
 			break;
-			case 'Authors':
+			case 'borrows':
+			//TODO - Find $borrowsCopyNr
 			
+			$sentence = $sentence . " (memberID, ISBN, copyNr, date_of_borrowing, date_of_return) "
+			. "VALUES(" . $borrowsID . ", " . $borrowsISBN . ", " . $borrowsCopyNr . ", "
+			. $borrowsDateNow . ", " . "NULL" . " )"; 
 			break;
 			
 		}
@@ -271,8 +284,16 @@
 				$sentence = $sentence . "ISBN=" . $bookISBN . " ";
 			}
 			break;
-			case 'Authors':
-			
+			case 'borrows':
+			if(!empty($borrowsID)){
+				$sentence = $sentence . "memberID=" . $borrowsID . " ";
+				if(!empty($borrowsISBN)){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($borrowsISBN)){
+				$sentence = $sentence . "ISBN=" . $borrowsISBN . " ";
+			}
 			break;
 		}
 	}
