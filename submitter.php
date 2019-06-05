@@ -16,6 +16,17 @@
 	$operation = $_POST['operation'];
 	$table = $_POST['table'];
 	$sentence = '';
+	
+	$servername="localhost";
+	$username="phpUser";
+	$password="phpuserpassword";
+	$dbname = "vaseis2019";
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if($conn->connect_error){
+		die("Connection failed: " . $conn->connect_error);
+	}
+	echo "<span style='color:green'>Connected</span> to Database." . '<br><br>';
+	
 	//load fields for selected table (update fields too if update operation is selected)
 	switch ( $table ) {
 		case 'member':
@@ -49,8 +60,12 @@
 			}
 			break;
 		case 'borrows':
-				$borrowsID = $_POST['borrowsID'];
-				$borrowsISBN = $_POST['borrowsISBN'];
+			$borrowsID = $_POST['borrowsID'];
+			$borrowsISBN = $_POST['borrowsISBN'];
+			if($operation=='Update'){
+				$borrowsIDUpdate = $_POST['borrowsIDUpdate'];
+				$borrowsISBNUpdate = $_POST['borrowsISBNUpdate'];
+			}
 			break;
 	}
 	//sentence prefix according to operation and table
@@ -155,14 +170,14 @@
 			}
 			break;
 			case 'borrows':
-				if(!empty($borrowsID)){
-					$sentence = $sentence . "memberID=" . $borrowsID . " ";
-					if(!empty($borrowsISBN)){
+				if(!empty($borrowsIDUpdate)){
+					$sentence = $sentence . "memberID=" . $borrowsIDUpdate . " ";
+					if(!empty($borrowsISBNUpdate)){
 						$sentence = $sentence . ", ";
 					}
 				}
-				if(!empty($borrowsISBN)){
-					$sentence = $sentence . "ISBN=" . $borrowsISBN . " ";
+				if(!empty($borrowsISBNUpdate)){
+					$sentence = $sentence . "ISBN=" . $borrowsISBNUpdate . " ";
 				}
 			break;
 		}
@@ -185,13 +200,20 @@
 			. $bookISBN . " )";
 			break;
 			case 'borrows':
-			//TODO - Find $borrowsCopyNr
-			
+			$borrowsDateNow = date("Y-m-d");
+			$borrowsCopy = mysqli_query($conn, 
+			"SELECT c.copyNr FROM copies c WHERE c.ISBN = ". $borrowsISBN .
+			" AND c.copyNr NOT IN(SELECT b.copyNr
+			FROM borrows b
+			WHERE b.ISBN=c.ISBN AND b.date_of_return IS NULL)
+			ORDER BY c.copyNr ASC
+			LIMIT 1;");
+			$borrowsCopyRow = $borrowsCopy->fetch_assoc();
+			$borrowsCopyNr = $borrowsCopyRow['copyNr'];
 			$sentence = $sentence . " (memberID, ISBN, copyNr, date_of_borrowing, date_of_return) "
-			. "VALUES(" . $borrowsID . ", " . $borrowsISBN . ", " . $borrowsCopyNr . ", "
-			. $borrowsDateNow . ", " . "NULL" . " )"; 
+			. "VALUES(" . $borrowsID . ", " . $borrowsISBN . ", " . $borrowsCopyNr . ", '"
+			. $borrowsDateNow . "', " . "NULL" . " )"; 
 			break;
-			
 		}
 	}
 	
@@ -297,20 +319,11 @@
 			break;
 		}
 	}
-	
-	$servername="localhost";
-	$username="phpUser";
-	$password="phpuserpassword";
-	$dbname = "vaseis2019";
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	if($conn->connect_error){
-		die("Connection failed: " . $conn->connect_error);
-	}
-	echo "<span style='color:green'>Connected</span> to Database." . '<br><br>';
-	
 	echo "Attempting query:" . '<br>';
 	echo "<span style='color:#C67643'>" . $sentence . "</span>" .'<br><br>';
+	
 	$result = mysqli_query($conn, $sentence);
+	
 	
 	if(!empty($result)){
 		echo "Query was <span style='color:green'>Succesfull</span><br>";

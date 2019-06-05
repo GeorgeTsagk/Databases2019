@@ -8,11 +8,12 @@
 			<p>This is the 6th semester project for Databases class 2018-2019, developped by Minaidis Panagiotis, Stefo Christos, Tsagkarelis Georgios</p>
 		</div>
 		<div id="body">
-			<h4>Choose the action you want to perform and fill in the form accordingly.</h4>
+			<h4>Choose the action you want to perform.</h4>
 			<div id="formSelect">
-			<a id="customButton" onclick='return showCustom()'>CUSTOM</a>  
-			<a id="defaultButton" onclick='return showDefault()'>DEFAULT</a>
-			<a id="bookListButton" href="bookList.php">LIST BOOKS</a><br>
+			<a id="customButton" onclick='return showCustom()'>CUSTOM FORM</a>  
+			<a id="defaultButton" onclick='return showDefault()'>DEFAULT LIST</a>
+			<a id="memberListButton" href="memberList.php">MEMBERLIST</a>
+			<a id="bookListButton" href="bookList.php">BOOKLIST</a><br>
 			</div>
 			<div id="formCustom">
 				<form action="submitter.php" method="post">

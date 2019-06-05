@@ -289,4 +289,13 @@ input[type="radio"]+label{
 #bookListButton{
 	text-decoration: none;
 	color: #92A12C;
+	float: right;
+	margin-right: 1%;
+}
+
+#memberListButton{
+	text-decoration: none;
+	color: #92A12C;
+	float: right;
+	margin-right: 15%;
 }

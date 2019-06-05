@@ -22,8 +22,12 @@
 		$authID = mysqli_query($conn, "SELECT authID FROM written_by WHERE ISBN=" . $row['ISBN']);
 		$authIDrow = $authID->fetch_assoc();
 		$authName = mysqli_query($conn, "SELECT Afirst, ALast FROM author WHERE authID=" . $authIDrow['authID']);
-		$authNamerow = $authName->fetch_assoc(); 
-		echo "<span style='font-weight:bold;color:#C98989'>" . $row['title'] . "</span>" . " written by <span style='color:#B38989'>" . $authNamerow['Afirst'] . " " . $authNamerow['ALast'] . "</span><br>" . "ISBN: " . $row['ISBN'] . "<br><br>";
+		$authNamerow = $authName->fetch_assoc();
+		
+		echo "<span style='font-weight:bold;color:#C98989'>" 
+		. $row['title'] . "</span>" . " written by <span style='color:#B38989'>" 
+		. $authNamerow['Afirst'] . " " . $authNamerow['ALast'] . "</span><br>" 
+		. "ISBN: " . $row['ISBN'] .  "<br><br>";
 	}
 	mysqli_close($conn);
 ?>
