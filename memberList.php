@@ -22,7 +22,7 @@
 		echo "<span style='font-weight:bold;color:#C98989'>" 
 		. $row['MLast'] . ' ' .$row['Mfirst'] . "</span>" . " born <span style='color:#B38989'>" 
 		. $row['Mbirthdate'] . "</span><br>" 
-		. "ID: " . $row['number'] .  "<br><br>";
+		. "Street: " . $row['Street'] . ' ' . $row['number'] . '  ' . "PostalCode: " . $row['postalCode'] .  "<br><br>";
 	}
 	mysqli_close($conn);
 ?>

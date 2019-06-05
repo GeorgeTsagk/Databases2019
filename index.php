@@ -78,10 +78,13 @@
 			
 			<div id="formDefault">
 				<form action="defaultSubmitter.php" method="post">
-					<input id="def1" type="radio" name="defaultSelector" value="default1"><label for="def1"> Statement1 </label><br>  
-					<input id="def2" type="radio" name="defaultSelector" value="default2"><label for="def2"> Statement2 </label><br>  
-					<input id="def3" type="radio" name="defaultSelector" value="default3"><label for="def3"> Statement3 </label><br>  
-					<input id="def4" type="radio" name="defaultSelector" value="default4"><label for="def4"> Statement4 </label><br>  
+					<input id="def1" type="radio" name="defaultSelector" value="default1"><label for="def1"> Books with many copies </label><br>  
+					<input id="def2" type="radio" name="defaultSelector" value="default2"><label for="def2"> Details about books </label><br>  
+					<input id="def3" type="radio" name="defaultSelector" value="default3"><label for="def3"> Most popular books </label><br>  
+					<input id="def4" type="radio" name="defaultSelector" value="default4"><label for="def4"> Most popular category </label><br>  
+					<input id="def5" type="radio" name="defaultSelector" value="default5"><label for="def5"> Average borrows per member </label><br>  
+					<input id="def6" type="radio" name="defaultSelector" value="default6"><label for="def6"> Permanent to Temporary Employees </label><br>  
+					<input id="def7" type="radio" name="defaultSelector" value="default7"><label for="def7"> Top 3 most frequent categories </label><br>  
 					<input id="buttonSubmit" type="submit" value="Submit!">
 					
 				</form>
