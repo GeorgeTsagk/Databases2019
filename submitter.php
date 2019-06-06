@@ -45,6 +45,22 @@
 				$memberBdayUpdate = $_POST['memberBdayUpdate'];
 			}
 			break;
+		case 'memberDetails':
+		$memberName = $_POST['memberName'];
+			$memberSurname = $_POST['memberSurname'];
+			$memberStreet = $_POST['memberStreet'];
+			$memberStreetNo = $_POST['memberStreetNo'];
+			$memberPostalCode = $_POST['memberPostalCode'];
+			$memberBday = $_POST['memberBday'];
+			if($operation=='Update'){
+				$memberNameUpdate = $_POST['memberNameUpdate'];
+				$memberSurnameUpdate = $_POST['memberSurnameUpdate'];
+				$memberStreetUpdate = $_POST['memberStreetUpdate'];
+				$memberStreetNoUpdate = $_POST['memberStreetNoUpdate'];
+				$memberPostalCodeUpdate = $_POST['memberPostalCodeUpdate'];
+				$memberBdayUpdate = $_POST['memberBdayUpdate'];
+			}
+		break;
 		case 'book':
 			$bookTitle = $_POST['bookTitle'];
 			$bookPublishingYear = $_POST['bookPublishingYear'];
@@ -130,7 +146,56 @@
 				}
 			}
 			if(!empty($memberBdayUpdate)){
-				$sentence = $sentence . "Mbirthdate='" . $memberBdayUpdate . "')";
+				$sentence = $sentence . "Mbirthdate='" . $memberBdayUpdate . "'";
+			}
+			break;
+			case 'memberDetails':
+			if(!empty($memberNameUpdate)){
+				$sentence = $sentence . "Mfirst='" . $memberNameUpdate . "' ";
+				if((!empty($memberSurnameUpdate))||
+					(!empty($memberStreetUpdate))||
+					(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))||
+					(!empty($memberBdayUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberSurnameUpdate)){
+				$sentence = $sentence . "MLast='" . $memberSurnameUpdate . "' ";
+				if(	(!empty($memberStreetUpdate))||
+					(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))||
+					(!empty($memberBdayUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberStreetUpdate)){
+				$sentence = $sentence . "Street='" . $memberStreetUpdate . "' ";
+				if(	(!empty($memberStreetNoUpdate))||
+					(!empty($memberPostalCodeUpdate))||
+					(!empty($memberBdayUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberStreetNoUpdate)){
+				$sentence = $sentence . "number=" . $memberStreetNoUpdate . " ";
+				if((!empty($memberPostalCodeUpdate))||
+					(!empty($memberBdayUpdate))
+				){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberPostalCodeUpdate)){
+				$sentence = $sentence . "postalCode=" . $memberPostalCodeUpdate . " ";
+				if(!empty($memberBdayUpdate)){
+					$sentence = $sentence . ", ";
+				}
+			}
+			if(!empty($memberBdayUpdate)){
+				$sentence = $sentence . "Mbirthdate='" . $memberBdayUpdate . "'";
 			}
 			break;
 			case 'book':
@@ -191,6 +256,11 @@
 			. "VALUES('" . $memberName ."', '" . $memberSurname . "', '" . $memberStreet 
 			. "', " . $memberStreetNo . " , " . $memberPostalCode . ", '" . $memberBday . "')";
 			break;
+			case 'memberDetails':
+			$sentence = $sentence . " (Mfirst, MLast, Street, number, postalCode, Mbirthdate) "
+			. "VALUES('" . $memberName ."', '" . $memberSurname . "', '" . $memberStreet 
+			. "', " . $memberStreetNo . " , " . $memberPostalCode . ", '" . $memberBday . "')";
+			break;
 			case 'book':
 			$sentence = $sentence . " (title, pubYear, pubName, numpages, ISBN) "
 			. "VALUES('" . $bookTitle . "' , " 
@@ -222,6 +292,55 @@
 		$sentence = $sentence . " WHERE ";
 		switch($table){
 			case 'member':
+			if(!empty($memberName)){
+				$sentence = $sentence . "Mfirst='" . $memberName . "' ";
+				if((!empty($memberSurname))||
+					(!empty($memberStreet))||
+					(!empty($memberStreetNo))||
+					(!empty($memberPostalCode))||
+					(!empty($memberBday))
+				){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberSurname)){
+				$sentence = $sentence . "MLast='" . $memberSurname . "' ";
+				if((!empty($memberStreet))||
+					(!empty($memberStreetNo))||
+					(!empty($memberPostalCode))||
+					(!empty($memberBday))
+				){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberStreet)){
+				$sentence = $sentence . "Street='" . $memberStreet . "' ";
+				if((!empty($memberStreetNo))||
+					(!empty($memberPostalCode))||
+					(!empty($memberBday))
+				){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberStreetNo)){
+				$sentence = $sentence . "number=" . $memberStreetNo . " ";
+				if((!empty($memberPostalCode))||
+					(!empty($memberBday))
+				){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberPostalCode)){
+				$sentence = $sentence . "postalCode=" . $memberPostalCode . " ";
+				if(!empty($memberBday)){
+					$sentence = $sentence . "AND ";
+				}
+			}
+			if(!empty($memberBday)){
+				$sentence = $sentence . "Mbirthdate=" . $memberBday . " ";
+			}
+			break;
+			case 'memberDetails':
 			if(!empty($memberName)){
 				$sentence = $sentence . "Mfirst='" . $memberName . "' ";
 				if((!empty($memberSurname))||
